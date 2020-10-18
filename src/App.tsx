@@ -6,44 +6,28 @@ import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 import TodoListItem from './components/TodoListItem';
 import { Dispatch } from "redux"
-import { addArticle } from './store/actionsCreators';
-
-const todoList : Array<Todo> =  [
-  { id: 1, text:"Home work", complete:true},
-  { id: 2, text:"Walk Megue", complete:false},
-  {id: 3, text:"Tcc app", complete:false}
-]
-
+import { addTodo,togleTodo } from './store/actionsCreators';
  
 const App :React.FC = () => {
-  const articles: readonly Todo[] = useSelector(
+  const todos: Todo[] = useSelector(
     (state: TodoState) => state.todos,
     shallowEqual
   )
+  
   const dispatch: Dispatch<any> = useDispatch()
-  const [todos, setTodos] = useState(todoList);
   const saveTodo = React.useCallback(
-      (todo: Todo) => dispatch(addArticle(todo)),
+      (todo: Todo) => dispatch(addTodo(todo)),
       [dispatch]
   )
 
-  const togleTodo:togleTodo = selectedTodo =>{
-  console.log(selectedTodo); 
-    
-     const newTodos = todos.map(todo =>{
-       if(todo === selectedTodo){
-         return{
-           ...todo,
-           complete : !todo.complete
-         }
-       };
-       return todo
-     })
-     setTodos(newTodos)   
-  }
+  const togleTodos = React.useCallback(
+    (todo: Todo) => dispatch(togleTodo(todo)),
+    [dispatch]
+)
+
   return (
     <React.Fragment>
-      <TodoList togleTodo={togleTodo} todoList={todos}/>
+      <TodoList togleTodo={togleTodos} todoList={todos}/>
       <TodoForm saveTodo={saveTodo}/>
     </React.Fragment>
   )        

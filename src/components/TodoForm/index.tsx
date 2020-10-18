@@ -8,33 +8,30 @@ const TodoForm: React.FC<Props> = ({ saveTodo }) => {
   const [todo, setTodo] = React.useState<Todo | {}>()
 
   const handleArticleData = (e: React.FormEvent<HTMLInputElement>) => {
+    
     setTodo({
       ...todo,
       [e.currentTarget.id]: e.currentTarget.value,
     })
   }
 
-  const addNewArticle = (e: React.FormEvent) => {
+  const addNewTodo = (e: React.FormEvent) => {
     e.preventDefault()
     saveTodo(todo)
   }
 
   return (
-    <form onSubmit={addNewArticle} className="Add-article">
+    <form onSubmit={addNewTodo} className="Add-article">
       <input
         type="text"
         id="text"
         placeholder="Title"
         onChange={handleArticleData}
       />
-      <input
-        type="text"
-        id="complete"
-        placeholder="Description"
-        onChange={handleArticleData}
-      />
+      {/* <input type="checkbox" id="complete" checked={}
+        onChange={handleArticleData} />       */}
       <button disabled={todo === undefined ? true : false}>
-        Add article
+        Add Todo
       </button>
     </form>
   )

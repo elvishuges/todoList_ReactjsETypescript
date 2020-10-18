@@ -1,6 +1,6 @@
 import * as actionTypes from "./actionsTypes"
 
-export function addArticle(todo: Todo) {
+export function addTodo(todo: Todo) {
   console.log("add Todo",todo);
     
   const action: TodoAction = {
@@ -11,9 +11,17 @@ export function addArticle(todo: Todo) {
   return simulateHttpRequest(action)
 }
 
-export function removeArticle(todo: Todo) {
+export function removeTodo(todo: Todo) {
   const action: TodoAction = {
     type: actionTypes.REMOVE_TODO,
+    todo,
+  }
+  return simulateHttpRequest(action)
+}
+
+export function togleTodo(todo: Todo) {
+  const action: TodoAction = {
+    type: actionTypes.TOGLE_TODO,
     todo,
   }
   return simulateHttpRequest(action)

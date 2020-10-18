@@ -10,7 +10,7 @@ class TodoListItem extends React.Component<TodoListItemProps> {
         return (
         <li>
             <label>
-                <input onChange={()=>togleTodo(todo)} type="checkbox" checked={todo.complete}/>
+                <input onChange={()=>togleTodo(todo)} type="checkbox" checked={todo.complete}/>                
                 {todo.text}
             </label>
         </li>
