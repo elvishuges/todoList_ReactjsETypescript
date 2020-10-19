@@ -8,7 +8,9 @@ export function addTodo(todo: Todo) {
     todo,
   }
 
-  return simulateHttpRequest(action)
+  return (dispatch: DispatchType) => {
+      dispatch(action)
+  }
 }
 
 export function removeTodo(todo: Todo) {
@@ -16,7 +18,9 @@ export function removeTodo(todo: Todo) {
     type: actionTypes.REMOVE_TODO,
     todo,
   }
-  return simulateHttpRequest(action)
+  return (dispatch: DispatchType) => {
+      dispatch(action)
+  }
 }
 
 export function togleTodo(todo: Todo) {
@@ -24,13 +28,13 @@ export function togleTodo(todo: Todo) {
     type: actionTypes.TOGLE_TODO,
     todo,
   }
-  return simulateHttpRequest(action)
+  return (dispatch: DispatchType) => {
+      dispatch(action)
+  }
 }
 
 export function simulateHttpRequest(todo: TodoAction) {
   return (dispatch: DispatchType) => {
-    setTimeout(() => {
       dispatch(todo)
-    }, 500)
   }
 }

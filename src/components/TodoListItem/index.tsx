@@ -1,4 +1,5 @@
 import React from "react";
+import { List, Checkbox } from 'antd';
 export interface TodoListItemProps {
     todo:Todo,
     togleTodo: togleTodo
@@ -8,12 +9,9 @@ class TodoListItem extends React.Component<TodoListItemProps> {
     render() {
         const { todo, togleTodo } = this.props
         return (
-        <li>
-            <label>
-                <input onChange={()=>togleTodo(todo)} type="checkbox" checked={todo.complete}/>                
-                {todo.text}
-            </label>
-        </li>
+            <>              
+              <List.Item><Checkbox checked={todo.complete} onChange={()=>togleTodo(todo)}></Checkbox> {todo.text}</List.Item>
+            </>
         );    
     }
 }

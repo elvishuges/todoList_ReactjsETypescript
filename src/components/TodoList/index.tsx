@@ -1,5 +1,6 @@
 import React  from "react";
 import TodoListItem from "../TodoListItem";
+import { List, Typography, Divider } from 'antd';
 
 interface TodoListProps {
     todoList : Todo[],
@@ -10,10 +11,20 @@ class TodoList extends React.Component<TodoListProps> {
     
     render() { 
         const { todoList, togleTodo } = this.props
-        return (        
-           todoList.map((todo,i)=>{
-              return <TodoListItem key={i} todo={todo} togleTodo = {togleTodo}/>
-           }) 
+        
+        return (      
+            <List
+                size="small"
+                header={<div>Todo</div>}
+                bordered
+                dataSource={todoList}
+                renderItem={(todo,i) => <TodoListItem key={i} todo={todo} togleTodo = {togleTodo}/>}
+                />
+            
+            
+        //    todoList.map((todo,i)=>{
+        //       return <TodoListItem key={i} todo={todo} togleTodo = {togleTodo}/>
+        //    }) 
         )
     }
 }
