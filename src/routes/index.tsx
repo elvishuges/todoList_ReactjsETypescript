@@ -8,7 +8,23 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import { Home } from "../pages/home";
 import { Dashboard } from "../pages/dashboard";
+import { Todo } from "../pages/todo";
 import Login from "../pages/login";
+
+const homeAdminRoutes = [
+    {
+        path: "/dashboard",
+        exact: true,
+        sidebar: () => <Dashboard />,
+        main: () => <Dashboard />
+    },
+    {
+        path: "/todo",
+        exact: true,
+        sidebar: () => <Dashboard />,
+        main: () => <Todo />
+    },
+];
 
 const AppRoutes: FC = () => {
     return (
@@ -17,6 +33,23 @@ const AppRoutes: FC = () => {
                 <Route path="/home" component={Home} ></Route>
                 <Route path="/dashboard" component={Dashboard} ></Route>
                 <Route path="/login" component={Login} ></Route>
+            </Switch>
+            <Switch>
+                {homeAdminRoutes.map((route, index) => (
+                    // You can render a <Route> in as many places
+                    // as you want in your app. It will render along
+                    // with any other <Route>s that also match the URL.
+                    // So, a sidebar or breadcrumbs or anything else
+                    // that requires you to render multiple things
+                    // in multiple places at the same URL is nothing
+                    // more than multiple <Route>s.
+                    <Route
+                        key={index}
+                        path={route.path}
+                        exact={route.exact}
+                        children={<route.sidebar />}
+                    />
+                ))}
             </Switch>
         </BrowserRouter>
     )

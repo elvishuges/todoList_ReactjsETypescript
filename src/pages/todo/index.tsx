@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Layout } from "antd";
 import { Dispatch } from "redux"
 
-const App: React.FC = () => {
+export const Todo: React.FC = () => {
 
     const { Header, Footer, Sider, Content } = Layout;
 
@@ -15,4 +15,3 @@ const App: React.FC = () => {
     )
 }
 
-export default App;

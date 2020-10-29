@@ -1,86 +1,17 @@
-import './index.css';
-import 'antd/dist/antd.css';
-import React from 'react'
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    Switch,
-} from 'react-router-dom';
+import React, { useState } from 'react'
 import { Layout } from "antd";
-import {
-    MenuUnfoldOutlined,
-    MenuFoldOutlined,
-} from '@ant-design/icons';
+import { Dispatch } from "redux"
 
-import Sider from "./../../components/Sider";
+export const Dashboard: React.FC = () => {
 
-
-const style = {
-    fontSize: "30px",
-    height: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
-};
-
-type ComponentType = {
-    [k: number]: JSX.Element
-}
-
-const components: ComponentType = {
-    1: <div style={style}>Página 1</div>,
-    2: <div style={style}>Página 2</div>,
-    3: <div style={style}>Página 3</div>,
-};
-
-
-export const Dashboard: React.FC<{}> = () => {
-
-    const { Header, Footer, Content } = Layout;
-    const [collapsed, setCollapsed] = React.useState<boolean>(true)
-    const [render, updateRender] = React.useState<any>(1)
-
-    const toggleCollapsed = () => {
-        setCollapsed(!collapsed)
-    }
-    const getActiveItem = ({ key }: any) => {
-        console.log('oiii', key);
-        updateRender(key);
-    };
+    const { Header, Footer, Sider, Content } = Layout;
 
     return (
         <React.Fragment>
-            <Router>
-                <Layout style={{ minHeight: '100vh' }}>
-                    <Sider collapsed={collapsed} clickHandler={getActiveItem} />
-                    <Layout className="site-layout">
-                        <Header className="site-layout-background" style={{ padding: 0 }}>
-                            {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-                                className: 'trigger',
-                                onClick: toggleCollapsed,
-                            })}
-                        </Header>
-                        <Layout>
-                            <Content
-                                className="site-layout-background"
-                                style={{
-                                    margin: '24px 16px',
-                                    padding: 24,
-                                    minHeight: 280,
-                                }}
-                            >
-                                {/*{components[render]}*/}
-                                <Switch>
-                                    <Route exact path="/todo" />
-                                </Switch>
-                            </Content>
-                        </Layout>
-                    </Layout>
-                </Layout>
-            </Router>
+            <Layout>
+                Dash
+            </Layout>
         </React.Fragment>
     )
 }
-
 

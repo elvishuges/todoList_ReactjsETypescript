@@ -33,8 +33,8 @@ const Sider: React.FC<SiderProps> = (props) => {
                     <Link to='/todo'>Account Settings</Link>
                 </Menu.Item>
                 <Menu.Item onClick={clickHandler} key="2" icon={<VideoCameraOutlined />}>
-                    nav 2
-                 </Menu.Item>
+                    <Link to='/dashboard'>Dash</Link>
+                </Menu.Item>
                 <Menu.Item onClick={clickHandler} key="3" icon={<UploadOutlined />}>
                     nav 3
                 </Menu.Item>
