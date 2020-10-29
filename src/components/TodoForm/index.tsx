@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Form, Input, Button, Col,Row } from 'antd';
+import { Form, Input, Button, Col, Row } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import "./TodoForm.css";
 
@@ -18,12 +18,11 @@ const TodoForm: React.FC<Props> = ({ saveTodo }) => {
   }
 
   const addNewTodo = (e: React.FormEvent) => {
-    console.log("clicked");
+    console.log("clicked", e);
     saveTodo(todo)
   }
 
   return (
-
     <Form
       name="normal_login"
       className="login-form"
@@ -31,34 +30,23 @@ const TodoForm: React.FC<Props> = ({ saveTodo }) => {
       onFinish={addNewTodo}
     >
       <Form.Item >
-      <Row >
-      
-      <Col span={12} offset={4}>
-      <Form.Item
-        name="username"
-        rules={[{ required: true, message: 'Please input your Username!' }]}
-      >
-        <Input id="text" onChange={handleArticleData} type="text" placeholder="Texto" />
-      </Form.Item>
-      </Col>
-      <Col>
-      <Form.Item>
-        <Button htmlType="submit" disabled={todo === undefined || null ? true : false} id="button" type="primary">Button</Button>
-      </Form.Item>
-      </Col>
-      </Row>
+        <Row >
+          <Col span={12} offset={5}>
+            <Form.Item
+              name="todoText"
+              rules={[{ required: true, message: 'Please input your Username!' }]}
+            >
+              <Input id="text" onChange={handleArticleData} type="text" placeholder="Texto" />
+            </Form.Item>
+          </Col>
+          <Col>
+            <Form.Item>
+              <Button htmlType="submit" disabled={todo === undefined || null ? true : false} id="button" type="primary">Button</Button>
+            </Form.Item>
+          </Col>
+        </Row>
       </Form.Item>
     </Form>
-    // <form onSubmit={addNewTodo} className="Add-article">
-    //    <Row gutter={4}>
-    //       <Col span={12}>
-    //       <Input id="text" onChange={handleArticleData} type="text" placeholder="Texto" />   
-    //       </Col>
-    //       <Col span={6}>
-    //       <Button onClick={addNewTodo} disabled={todo === undefined ? true : false} id="button" type="primary">Button</Button>
-    //       </Col>
-    //     </Row>               
-    // </form>
   )
 }
 

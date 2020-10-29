@@ -1,32 +1,27 @@
-import React  from "react";
+import React from "react";
 import TodoListItem from "../TodoListItem";
 import { List, Typography, Divider } from 'antd';
 
 interface TodoListProps {
-    todoList : Todo[],
+    todoList: Todo[],
     togleTodo: togleTodo
 }
- 
+
 class TodoList extends React.Component<TodoListProps> {
-    
-    render() { 
+
+    render() {
         const { todoList, togleTodo } = this.props
-        
-        return (      
+
+        return (
             <List
                 size="small"
                 header={<div>Todo</div>}
                 bordered
                 dataSource={todoList}
-                renderItem={(todo,i) => <TodoListItem key={i} todo={todo} togleTodo = {togleTodo}/>}
-                />
-            
-            
-        //    todoList.map((todo,i)=>{
-        //       return <TodoListItem key={i} todo={todo} togleTodo = {togleTodo}/>
-        //    }) 
+                renderItem={(todo, i) => <TodoListItem key={i} todo={todo} togleTodo={togleTodo} />}
+            />
         )
     }
 }
- 
+
 export default TodoList;
