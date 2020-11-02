@@ -8,20 +8,20 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import { Home } from "../pages/home";
 import { Dashboard } from "../pages/dashboard";
-import { Todo } from "../pages/todo";
+import Todo from "../pages/todo";
 import Login from "../pages/login";
 
 const homeAdminRoutes = [
     {
         path: "/dashboard",
         exact: true,
-        sidebar: () => <Dashboard />,
+        sidebar: () => <Home />,
         main: () => <Dashboard />
     },
     {
         path: "/todo",
         exact: true,
-        sidebar: () => <Dashboard />,
+        sidebar: () => <Home />,
         main: () => <Todo />
     },
 ];
@@ -31,7 +31,6 @@ const AppRoutes: FC = () => {
         <BrowserRouter>
             <Switch>
                 <Route path="/home" component={Home} ></Route>
-                <Route path="/dashboard" component={Dashboard} ></Route>
                 <Route path="/login" component={Login} ></Route>
             </Switch>
             <Switch>

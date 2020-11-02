@@ -5,23 +5,18 @@
 }
 .ant-layout-header,
 .ant-layout-footer {
-  background: #7dbcea;
+  background: #1d5780;
   color: #fff;
 }
-[data-theme="dark"] .ant-layout-header {
-  background: #6aa0c7;
+
+.headerTodo-layout-background{
+  background: #1d5780;
 }
-[data-theme="dark"] .ant-layout-footer {
-  background: #6aa0c7;
-}
+
 .ant-layout-footer {
   line-height: 1.5;
 }
-.ant-layout-sider {
-  background: #3ba0e9;
-  color: #fff;
-  line-height: 120px;
-}
+
 [data-theme="dark"] .ant-layout-sider {
   background: #3499ec;
 }

@@ -9,6 +9,8 @@ import {
 } from '@ant-design/icons';
 
 import Sider from "./../../components/Sider";
+import { Dashboard } from '../dashboard';
+import Todo from '../todo';
 
 
 const style = {
@@ -46,7 +48,7 @@ export const Home: React.FC<{}> = () => {
 
     return (
         <React.Fragment>
-            <BrowserRouter>
+            <Route>
                 <Layout style={{ minHeight: '100vh' }}>
                     <Sider collapsed={collapsed} clickHandler={getActiveItem} />
                     <Layout className="site-layout">
@@ -67,14 +69,14 @@ export const Home: React.FC<{}> = () => {
                             >
                                 {/*{components[render]}*/}
                                 <Switch>
-                                    <Route exact path="/todo" />
-                                    <Route exact path="/dashboard" />
+                                    <Route path="/todo" component={Todo} />
+                                    <Route path="/dashboard" component={Dashboard} />
                                 </Switch>
                             </Content>
                         </Layout>
                     </Layout>
                 </Layout>
-            </BrowserRouter>
+            </Route>
         </React.Fragment>
     )
 }

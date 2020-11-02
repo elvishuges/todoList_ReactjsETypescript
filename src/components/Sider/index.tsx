@@ -4,13 +4,15 @@ import {
     Route,
     Link,
     Switch,
+    useLocation
 } from 'react-router-dom';
 
 import { Layout, Menu, Button } from "antd";
 import {
-    UserOutlined,
-    VideoCameraOutlined,
     UploadOutlined,
+    OrderedListOutlined,
+    DashboardFilled,
+    LogoutOutlined
 } from '@ant-design/icons';
 
 import { Home } from './../../pages/home';
@@ -25,18 +27,20 @@ const Sider: React.FC<SiderProps> = (props) => {
 
     const { Sider } = Layout;
     const { collapsed, clickHandler } = props
+    let location = useLocation();
+
     return (
         <Sider trigger={null} collapsible collapsed={collapsed}>
             <div className="logo" />
-            <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                <Menu.Item onClick={clickHandler} key="1" icon={<UserOutlined />}>
-                    <Link to='/todo'>Account Settings</Link>
+            <Menu theme="dark" mode="inline" defaultSelectedKeys={[location.pathname]}>
+                <Menu.Item onClick={clickHandler} key="/dashboard" icon={<DashboardFilled />}>
+                    <Link to='/dashboard'>Dashboard</Link>
                 </Menu.Item>
-                <Menu.Item onClick={clickHandler} key="2" icon={<VideoCameraOutlined />}>
-                    <Link to='/dashboard'>Dash</Link>
+                <Menu.Item onClick={clickHandler} key="/todo" icon={<OrderedListOutlined />}>
+                    <Link to='/todo'>Todo list</Link>
                 </Menu.Item>
-                <Menu.Item onClick={clickHandler} key="3" icon={<UploadOutlined />}>
-                    nav 3
+                <Menu.Item onClick={clickHandler} key="/login" icon={<LogoutOutlined />}>
+                    <Link to='/login'>Logout</Link>
                 </Menu.Item>
             </Menu>
         </Sider>

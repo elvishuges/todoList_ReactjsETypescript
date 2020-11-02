@@ -25,21 +25,23 @@ const TodoForm: React.FC<Props> = ({ saveTodo }) => {
   return (
     <Form
       name="normal_login"
+      layout="vertical"
       className="login-form"
       initialValues={{ remember: true }}
       onFinish={addNewTodo}
     >
       <Form.Item >
         <Row >
-          <Col span={12} offset={5}>
+          <Col span={18} push={6}  >
             <Form.Item
               name="todoText"
+
               rules={[{ required: true, message: 'Please input your Username!' }]}
             >
               <Input id="text" onChange={handleArticleData} type="text" placeholder="Texto" />
             </Form.Item>
           </Col>
-          <Col>
+          <Col span={6} push={18}  >
             <Form.Item>
               <Button htmlType="submit" disabled={todo === undefined || null ? true : false} id="button" type="primary">Button</Button>
             </Form.Item>
