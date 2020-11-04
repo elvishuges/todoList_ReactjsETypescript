@@ -30,7 +30,6 @@ const AppRoutes: FC = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/home" component={Home} ></Route>
                 <Route path="/login" component={Login} ></Route>
             </Switch>
             <Switch>
