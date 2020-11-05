@@ -1,7 +1,7 @@
 interface Todo {
-    id:number,
-    text:String,
-    complete:boolean
+    id: number,
+    text: String,
+    complete: boolean
 }
 
 type TodoState = {
@@ -10,9 +10,9 @@ type TodoState = {
 
 type TodoAction = {
     type: string,
-    todo:Todo
+    todo: Todo
 }
 
 type DispatchType = (args: TodoAction) => TodoAction
 
-type togleTodo = (selectedTodo : Todo) => void
+type togleTodo = (selectedTodo: Todo) => void

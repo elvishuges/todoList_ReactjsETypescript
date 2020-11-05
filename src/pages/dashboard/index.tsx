@@ -10,11 +10,11 @@ export const Dashboard: React.FC = () => {
     return (
         <React.Fragment>
 
-            <div className="site-card-wrapper">
-                <Row gutter={16}>
+            <div className="dashboard-card-wrapper">
+                <Row gutter={[19, 10]}>
                     <Col span={8} lg={8} sm={12} xs={24}>
                         <Card hoverable={true} title="Progresso" bordered={true}>
-                            <Row>
+                            <Row justify="center" align="middle" >
                                 <Col span={8}><Progress type="circle" percent={30} width={60} /></Col>
                                 <Col span={8}><Progress type="circle" percent={30} width={60} /></Col>
                                 <Col span={8}><Progress type="circle" percent={30} width={60} /></Col>

@@ -3,3 +3,13 @@
 .headerTodo-layout-background{
   background: #1d5780;
 }
+
+.todoList-card-wrapper
+.ant-card-head {
+  background-color:#1d5780;
+}
+
+.todoList-card-wrapper {
+  padding: 30px;
+  background: #ececec;
+}

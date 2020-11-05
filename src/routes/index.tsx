@@ -8,6 +8,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import { Home } from "../pages/home";
 import { Dashboard } from "../pages/dashboard";
+import { NotFoundPage } from "../pages/notFoundPage";
 import Todo from "../pages/todo";
 import Login from "../pages/login";
 
@@ -30,9 +31,7 @@ const AppRoutes: FC = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/login" component={Login} ></Route>
-            </Switch>
-            <Switch>
+                <Route exact path="/login" component={Login} ></Route>
                 {homeAdminRoutes.map((route, index) => (
                     // You can render a <Route> in as many places
                     // as you want in your app. It will render along
@@ -48,6 +47,10 @@ const AppRoutes: FC = () => {
                         children={<route.sidebar />}
                     />
                 ))}
+                <Route path="*" component={NotFoundPage} />
+            </Switch>
+            <Switch>
+
             </Switch>
         </BrowserRouter>
     )

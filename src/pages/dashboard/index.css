@@ -1,10 +1,12 @@
-.site-card-wrapper
+.dashboard-card-wrapper
 .ant-card-head {
   background-color:#1d5780;
 }
 
-.site-card-wrapper
+.dashboard-card-wrapper
 .ant-card{
   margin: 8px 4px;
   justify-content: left  ;
 }
+.dashboard-card-wrapper{padding: 30px;
+  background: #ececec;}
