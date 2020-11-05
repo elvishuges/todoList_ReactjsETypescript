@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Form, Input, Button, Col, Row } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import "./TodoForm.css";
 
 type Props = {
   saveTodo: (todo: Todo | any) => void

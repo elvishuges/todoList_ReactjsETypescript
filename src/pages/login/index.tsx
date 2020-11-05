@@ -1,8 +1,7 @@
 import React, { ReactElement } from 'react'
-import './index.css';
 import { Form, Input, Button, Checkbox, Card, Row, Col, Layout } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-
+import "./index.css";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -28,7 +27,6 @@ const validateMessages = {
     },
 };
 
-const { Header, Footer, Sider, Content } = Layout;
 
 export default function Login({ }: Props): ReactElement {
 
@@ -46,7 +44,6 @@ export default function Login({ }: Props): ReactElement {
                 <Col md={{ span: 12, offset: 0 }} lg={{ span: 8, offset: 0 }}>
                     <Card style={{ textAlign: 'center' }} >
                         <Form
-
                             style={{ textAlign: 'center' }}
                             name="normal_login"
                             className="login-form"

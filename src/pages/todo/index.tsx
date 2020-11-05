@@ -1,10 +1,10 @@
 import { ReactComponent } from '*.svg';
 import { useSelector, shallowEqual, useDispatch } from "react-redux"
 import React, { useState } from 'react'
-import './index.css';
 import { Layout } from "antd";
 import TodoList from './../../components/TodoList';
 import TodoForm from './../../components/TodoForm';
+import "./index.css";
 import { Dispatch } from "redux"
 import { addTodo, togleTodo } from './../../store/actionsCreators';
 
@@ -31,10 +31,12 @@ const Todo: React.FC = () => {
 
     return (
         <React.Fragment>
-            <Layout>
-                <Header className="headerTodo-layout-background" >Todo list</Header>
-                <TodoList togleTodo={togleTodos} todoList={todos} />
-            </Layout>
+            <div className="site-card-wrapper">
+                <Layout>
+                    <Header className="headerTodo-layout-background" >Todo list</Header>
+                    <TodoList togleTodo={togleTodos} todoList={todos} />
+                </Layout>
+            </div>
         </React.Fragment>
     )
 }
